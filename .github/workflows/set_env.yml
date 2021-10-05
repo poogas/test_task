@@ -18,5 +18,4 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.HOST_USER }}
           key: ${{ secrets.SSH_KEY }}
-          script: |
-            export TEST=${{ secrets.TEST }}
+          script: export TEST=${{ secrets.TEST }}
