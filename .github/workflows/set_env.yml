@@ -15,11 +15,13 @@ jobs:
       - name: executing remote ssh commands to set env
         uses: appleboy/ssh-action@master
         env: 
-          FOO: ${{ secrets.HOST }}
+          LE_EMAIL: ${{ secrets.LE_EMAIL }}
+          LE_FQDN: ${{ secrets.LE_FQDN }}
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.HOST_USER }}
           key: ${{ secrets.SSH_KEY }}
           envs: FOO 
           script: | 
-            echo TEST=$FOO > .env
+            echo LE_EMAIL=$LE_EMAIL > .env
+            echo LE_FQDN=$LE_FQDN > .env
