@@ -15,8 +15,8 @@ jobs:
       - name: executing remote ssh commands to set env
         uses: appleboy/ssh-action@master
         env: 
-          FOO: "BAR" 
-          BAR: "FOO" 
+          FOO: ${{ secrets.TEST }}
+          BAR: ${{ secrets.HOST }} 
           SHA: ${{ github.sha }} 
         with:
           host: ${{ secrets.HOST }}
