@@ -21,7 +21,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.HOST_USER }}
           key: ${{ secrets.SSH_KEY }}
-          envs: FOO 
+          envs: LE_EMAIL, LE_FQDN
           script: | 
             echo LE_EMAIL=$LE_EMAIL > .env
             echo LE_FQDN=$LE_FQDN > .env
