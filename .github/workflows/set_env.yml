@@ -19,6 +19,6 @@ jobs:
           username: ${{ secrets.HOST_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-           whoami
-           export
-           ls ~/
+            export HOST=${{ secrets.HOST }}
+            echo HOST=${{ secrets.HOST }} > .env
+            ls
