@@ -16,14 +16,10 @@ jobs:
         uses: appleboy/ssh-action@master
         env: 
           FOO: ${{ secrets.TEST }}
-          BAR: ${{ secrets.HOST }} 
-          SHA: ${{ github.sha }} 
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.HOST_USER }}
           key: ${{ secrets.SSH_KEY }}
           envs: FOO,BAR,SHA 
           script: | 
-            echo "I am $FOO, thanks" 
-            echo "I am $BAR, thanks" 
-            echo "sha: $SHA" 
+            echo TEST=${{ secrets.FOO }} > .env
