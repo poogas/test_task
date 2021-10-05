@@ -14,11 +14,16 @@ jobs:
     steps:
       - name: executing remote ssh commands to set env
         uses: appleboy/ssh-action@master
+        env: 
+          FOO: "BAR" 
+          BAR: "FOO" 
+          SHA: ${{ github.sha }} 
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.HOST_USER }}
           key: ${{ secrets.SSH_KEY }}
-          script: |
-            export HOST=${{ secrets.HOST }}
-            echo HOST=${{ secrets.HOST }} > .env
-            ls
+          envs: FOO,BAR,SHA 
+          script: | 
+            echo "I am $FOO, thanks" 
+            echo "I am $BAR, thanks" 
+            echo "sha: $SHA" 
