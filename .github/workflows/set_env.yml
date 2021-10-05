@@ -24,4 +24,4 @@ jobs:
           envs: LE_EMAIL, LE_FQDN
           script: | 
             echo LE_EMAIL=$LE_EMAIL > .env
-            echo LE_FQDN=$LE_FQDN > .env
+            echo LE_FQDN=$LE_FQDN >> .env
