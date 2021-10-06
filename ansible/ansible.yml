@@ -61,5 +61,6 @@
         state: latest
         
     - name: Install docker pip
-      pip3:
+      pip:
+        version: 3
         name: docker-compose
