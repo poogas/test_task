@@ -17,6 +17,7 @@ jobs:
         with:
         playbook: ansible.yml
         directory: ./ansible/
+        
         key: ${{ secrets.SSH_KEY }}
         inventory: |
           [web_server]
