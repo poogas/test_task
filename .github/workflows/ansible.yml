@@ -14,12 +14,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Setup remote
+        run: |
+          echo 'SSH_KNOWN_HOSTS<<EOF' >> $GITHUB_ENV
+          echo $(ssh-keyscan localhost) >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
           playbook: ansible.yml
           directory: ansible
           key: ${{ secrets.SSH_KEY }}
+          known_hosts: ${{env.SSH_KNOWN_HOSTS}}
           inventory: |
             [web_server]
             ${{ secrets.HOST }}
