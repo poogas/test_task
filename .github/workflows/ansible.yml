@@ -10,22 +10,24 @@ on:
 
 jobs:
   remote:
+    name: 'Ansible'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      
+      - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup remote
+
+      - id: host
+        env:
+          SSH: ${{ secrets.SSH_KEY }}
         run: |
-          echo 'SSH_KNOWN_HOSTS<<EOF' >> $GITHUB_ENV
-          echo $(ssh-keyscan localhost) >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
-      - name: Run playbook
-        uses: dawidd6/action-ansible-playbook@v2
+            echo ${{ secrets.HOST }} >> ansible/hosts
+            echo "$SSH" > ansible/key.pem
+            chmod 400 ansible/key.pem
+            cat ansible/key.pem
+      - name: Ansible
+        uses: saubermacherag/ansible-playbook-docker-action@v1.3
         with:
-          playbook: ansible.yml
-          directory: ansible
-          key: ${{ secrets.SSH_KEY }}
-          known_hosts: ${{env.SSH_KNOWN_HOSTS}}
-          inventory: |
-            [web_server]
-            ${{ secrets.HOST }}
+          playbookName: 'ansible/ansible.yml'
+          inventoryFile: 'ansible/hosts'
+          keyFile: 'ansible/key.pem'
