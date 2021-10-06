@@ -71,3 +71,10 @@
         name: docker-compose
         executable: pip3
       become: yes
+      
+    - name: Create symbolic link 
+      file:
+        src: "/usr/local/bin/docker-compose"
+        dest: "/usr/bin/docker-compose"
+        state: link
+      become: yes
