@@ -1,7 +1,7 @@
 - name: test
   gather_facts: false
   hosts: [all]
-  remote_user: {{ USER }}
+  remote_user: '{{ USER }}'
 
   tasks:
     - name: Install yum utils
@@ -49,7 +49,7 @@
 
     - name: Add user to docker group
       user:
-        name: {{ USER }}
+        name: '{{ USER }}'
         groups: docker
         append: yes
       become: yes
