@@ -49,3 +49,17 @@
         groups: docker
         append: yes
       become: yes
+      
+    - name: Install epel-release
+      yum:
+        name: epel-release
+        state: latest
+        
+    - name: Install python3-pip
+      yum:
+        name: python3-pip
+        state: latest
+        
+    - name: Install docker pip
+      pip3:
+        name: docker-compose
