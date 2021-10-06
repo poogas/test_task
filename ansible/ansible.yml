@@ -1,6 +1,7 @@
 - name: test
   gather_facts: false
   hosts: [all]
+  remote_user: centos
   become: yes
 
   tasks:
