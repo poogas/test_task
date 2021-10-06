@@ -68,6 +68,6 @@
         
     - name: Install docker pip
       pip:
-        version: 3
         name: docker-compose
+        executable: pip3
       become: yes
