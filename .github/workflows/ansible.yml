@@ -1,15 +1,10 @@
 name: Ansible
 
 on:
-  workflow_run:
-    workflows:
-      - ansible
-    types: 
-      - completed
-    push:
-      branches: [ main ]
-    pull_request:
-      branches: [ main ]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
   workflow_dispatch:
 
@@ -37,5 +32,3 @@ jobs:
           inventoryFile: 'ansible/hosts'
           keyFile: 'ansible/key.pem'
           extraVars: '-e USER=${{ secrets.USER }}'
-          workflow_conclusion: success
-          name: ansible
