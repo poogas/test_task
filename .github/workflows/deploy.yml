@@ -1,6 +1,11 @@
 name: deply
 
 on:
+  workflow_run:
+    workflows:
+      - Ansible
+    types: 
+      - completed
   push:
     branches: [ main ]
   pull_request:
