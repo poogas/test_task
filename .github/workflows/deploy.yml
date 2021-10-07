@@ -2,9 +2,8 @@ name: deply
 
 on:
   workflow_run:
-    workflows:
-      - Ansible
-    types: 
+    workflows: ['Ansible']
+    types:
       - completed
   push:
     branches: [ main ]
