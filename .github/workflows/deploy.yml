@@ -26,7 +26,6 @@ jobs:
         deployment_mode: docker-compose
         copy_stack_file: true
         deploy_path: ~/
-        stack_file_name: etc
-        stack_file_name: docker-compose.yml
+        stack_file_name: etc docker-compose.yml
         pull_images_first: true
         args: ps
