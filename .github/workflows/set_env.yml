@@ -1,15 +1,10 @@
 name: set env
 
 on:
-  workflow_run:
-    workflows:
-      - set_env
-    types: 
-      - completed
-    push:
-      branches: [ main ]
-    pull_request:
-      branches: [ main ]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
   workflow_dispatch:
 
@@ -30,5 +25,3 @@ jobs:
           script: | 
             echo LE_EMAIL=$LE_EMAIL > .env
             echo LE_FQDN=$LE_FQDN >> .env
-          workflow_conclusion: success
-          name: set_env
