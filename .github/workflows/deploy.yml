@@ -34,5 +34,3 @@ jobs:
         stack_file_name: docker-compose.yml
         pull_images_first: true
         args: ps
-        workflow_conclusion: success
-          name: ansible
