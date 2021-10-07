@@ -70,7 +70,7 @@
       pip:
         name: pip
         executable: pip3
-        state: latest
+        state: forcereinstall
       become: yes
         
     - name: Install docker-compose
