@@ -16,20 +16,12 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@v2
-      
-    - id: host
-      env:
-        SSH: ${{ secrets.SSH_KEY }}
-      run: |
-        echo "$SSH" > ~/key.pem
-        chmod 400 ~/key.pem
-        cat ~/key.pem
 
     - name: Start Deployment
       uses: wshihadeh/docker-deployment-action@master
       with:
         remote_docker_host: ${{ secrets.HOST }}
-        ssh_private_key: '~/key.pem'
+        ssh_private_key: ${{ secrets.SSH_KEY }}
         ssh_public_key: ${{ secrets.SSH_PUB_KEY }}
         deployment_mode: docker-compose
         copy_stack_file: true
