@@ -28,3 +28,4 @@ jobs:
         deploy_path: ~/
         stack_file_name: docker-compose.yml
         pull_images_first: true
+        args: ps
