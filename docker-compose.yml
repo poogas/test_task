@@ -1,0 +1,72 @@
+version: '3.9'
+
+services:
+  nginx:
+    image: umputun/nginx-le:latest
+
+    links:
+      - wordpress
+
+    hostname: nginx
+    restart: always
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+    volumes:
+      - ./etc/ssl:/etc/nginx/ssl
+      - ./etc/service.conf:/etc/nginx/service.conf
+      - ./data/html:/var/www/html
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - TZ=Europe/Moscow
+      - LETSENCRYPT=true
+      - LE_EMAIL=${LE_EMAIL}
+      - LE_FQDN=${LE_FQDN}
+
+  mysql:
+    image: mariadb
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 4m3SxCpaQb*6LB#
+      MYSQL_DATABASE: db_wordpress
+      MYSQL_USER: user_wp
+      MYSQL_PASSWORD: 9UqfqeE9#hn2@t^
+    restart: always
+
+  wordpress:
+    image: wordpress:php7.3-fpm-alpine
+    depends_on:
+      - mysql
+      - smtp
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_NAME: db_wordpress
+      WORDPRESS_DB_USER: user_wp
+      WORDPRESS_DB_PASSWORD: 9UqfqeE9#hn2@t^
+      WORDPRESS_TABLE_PREFIX: wp_
+    links:
+      - mysql
+      - smtp
+    volumes:
+      - ./data/html:/var/www/html
+    restart: always
+
+  smtp:
+    image: mwader/postfix-relay
+    restart: always
+    volumes:
+      - dkim-data:/etc/opendkim/keys
+    environment:
+      - POSTFIX_myhostname=poogas.cc
+      - OPENDKIM_DOMAINS=poogas.cc
+
+volumes:
+  dkim-data:
+
