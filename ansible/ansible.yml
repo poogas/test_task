@@ -54,29 +54,10 @@
         append: yes
       become: yes
       
-    - name: Install epel-release
-      yum:
-        name: epel-release
-        state: latest
-      become: yes
-        
-    - name: Install python3-pip
-      yum:
-        name: python3-pip
-        state: latest
-      become: yes
-      
-    - name: install the package, force upgrade
-      pip:
-        name: pip
-        executable: pip3
-        state: forcereinstall
-      become: yes
-        
     - name: Install docker-compose
-      pip:
-        name: docker-compose
-        executable: pip3
+      get_url:
+        url: https://github.com/docker/compose/releases/download/2.0.1/docker-compose-$(uname -s)-$(uname -m)
+        dest: /usr/local/bin/docker-compose
       become: yes
       
     - name: Create symbolic link 
