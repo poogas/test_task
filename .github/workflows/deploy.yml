@@ -1,15 +1,10 @@
 name: deply
 
 on:
-  workflow_run:
-    workflows:
-      - deply
-    types: 
-      - completed
-    push:
-      branches: [ main ]
-    pull_request:
-      branches: [ main ]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
   workflow_dispatch:
 
