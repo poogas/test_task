@@ -21,7 +21,7 @@ jobs:
       uses: wshihadeh/docker-deployment-action@master
       with:
         remote_docker_host: ${{ secrets.HOST }}
-        ssh_private_key: ${{ secrets.SSH_KEY }}
+        ssh_private_key: ${{ secrets.SSH_KEY_RSA }}
         ssh_public_key: ${{ secrets.SSH_PUB_KEY }}
         deployment_mode: docker-compose
         copy_stack_file: true
