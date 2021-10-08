@@ -1,7 +1,7 @@
 # test_task
-[![Ansible](https://github.com/poogas/test_task/blob/main/.github/workflows/ansible.yml/badge.svg)](https://github.com/poogas/test_task/blob/main/.github/workflows/ansible.yml)
-[![set env](https://github.com/poogas/test_task/blob/main/.github/workflows/set_env.yml/badge.svg)](https://github.com/poogas/test_task/blob/main/.github/workflows/set_env.yml)
-[![deply](https://github.com/poogas/test_task/blob/main/.github/workflows/deploy.yml/badge.svg)](https://github.com/poogas/test_task/blob/main/.github/workflows/deploy.yml)
+![Ansible workflow](https://github.com/poogas/test_task/blob/main/.github/workflows/ansible.yml/badge.svg)
+![set env workflow](https://github.com/poogas/test_task/blob/main/.github/workflows/set_env.yml/badge.svg)
+![deply workflow](https://github.com/poogas/test_task/blob/main/.github/workflows/deploy.yml/badge.svg)
 
 # Requements
 
