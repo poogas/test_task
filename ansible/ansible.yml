@@ -66,3 +66,21 @@
         dest: "/usr/bin/docker-compose"
         state: link
       become: yes
+      
+    - name: сreate directory 
+      file:
+        path=~/data/html
+        state=directory
+      become: yes
+      
+    - name: сreate directory 
+      file:
+        path=~/data/mysql
+        state=directory
+      become: yes
+      
+    - name: сreate directory 
+      file:
+        path=~/etc
+        state=directory
+      become: yes
