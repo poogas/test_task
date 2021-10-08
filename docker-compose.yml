@@ -44,7 +44,6 @@ services:
     image: wordpress:php7.3-fpm-alpine
     depends_on:
       - mysql
-      - smtp
     environment:
       WORDPRESS_DB_HOST: mysql
       WORDPRESS_DB_NAME: db_wordpress
@@ -53,20 +52,7 @@ services:
       WORDPRESS_TABLE_PREFIX: wp_
     links:
       - mysql
-      - smtp
     volumes:
       - ./data/html:/var/www/html
     restart: always
-
-  smtp:
-    image: mwader/postfix-relay
-    restart: always
-    volumes:
-      - dkim-data:/etc/opendkim/keys
-    environment:
-      - POSTFIX_myhostname=poogas.cc
-      - OPENDKIM_DOMAINS=poogas.cc
-
-volumes:
-  dkim-data:
 
