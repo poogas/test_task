@@ -32,7 +32,7 @@ jobs:
       run: |
         echo "$SSH" > ~/key
         chmod 400 ~/key
-        ssh-keygen -p -m PEM -f ~/key
+        ssh-keygen -q -N -p -m PEM -f ~/deploy <<<y >/dev/null 2>&1
         key=$( cat ~/key )
         echo "SSH_KEY_RSA=$key" >> $GITHUB_ENV
         
