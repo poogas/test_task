@@ -31,6 +31,7 @@ jobs:
         SSH: ${{ secrets.SSH_KEY }}
       run: |
         echo "$SSH" > ~/key
+        chmod 400 ansible/key
         ssh-keygen -p -m PEM -f ~/key
         key=$( cat ~/key )
         echo "SSH_KEY_RSA=$key" >> $GITHUB_ENV
