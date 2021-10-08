@@ -17,6 +17,9 @@ jobs:
         env: 
           LE_EMAIL: ${{ secrets.LE_EMAIL }}
           LE_FQDN: ${{ secrets.LE_FQDN }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_USER_PASSWORD: ${{ secrets.DB_USER_PASSWORD }}
+          DB_ROOT_PASSWORD: ${{ secrets.DB_ROOT_PASSWORD }}
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.HOST_USER }}
@@ -25,3 +28,6 @@ jobs:
           script: | 
             echo LE_EMAIL=$LE_EMAIL > .env
             echo LE_FQDN=$LE_FQDN >> .env
+            echo DB_USER=$DB_USER >> .env
+            echo DB_USER_PASSWORD=$DB_USER_PASSWORD >> .env
+            echo DB_ROOT_PASSWORD=$DB_ROOT_PASSWORD >> .env
