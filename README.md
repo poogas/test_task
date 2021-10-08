@@ -3,6 +3,12 @@
 [![set env](https://github.com/poogas/test_task/actions/workflows/set_env.yml/badge.svg)](https://github.com/poogas/test_task/actions/workflows/set_env.yml)
 [![deply](https://github.com/poogas/test_task/actions/workflows/deploy.yml/badge.svg)](https://github.com/poogas/test_task/actions/workflows/deploy.yml)
 
+# Info:
+
+Project for DelaWeb by [Dmitriy Volynov]
+
+Creates simple wordpress, nginx, mariadb in docker compose with CI/CD and github actions 
+
 # Requements
 
 - Centos7 for host
