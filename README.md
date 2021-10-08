@@ -7,7 +7,7 @@
 
 Project for DelaWeb by [Dmitriy Volynov]
 
-Creates simple wordpress, nginx, mariadb in docker compose with CI/CD and github actions 
+Creates simple project wordpress, nginx with letsencrypt, mariadb in docker compose with CI/CD and github actions 
 
 # Requements
 
