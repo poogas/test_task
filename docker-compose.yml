@@ -34,10 +34,10 @@ services:
     volumes:
       - ./data/mysql:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: 4m3SxCpaQb*6LB#
-      MYSQL_DATABASE: db_wordpress
-      MYSQL_USER: user_wp
-      MYSQL_PASSWORD: 9UqfqeE9#hn2@t^
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: db
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_USER_PASSWORD}
     restart: always
 
   wordpress:
@@ -46,13 +46,12 @@ services:
       - mysql
     environment:
       WORDPRESS_DB_HOST: mysql
-      WORDPRESS_DB_NAME: db_wordpress
-      WORDPRESS_DB_USER: user_wp
-      WORDPRESS_DB_PASSWORD: 9UqfqeE9#hn2@t^
+      WORDPRESS_DB_NAME: db
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_USER_PASSWORD}
       WORDPRESS_TABLE_PREFIX: wp_
     links:
       - mysql
     volumes:
       - ./data/html:/var/www/html
     restart: always
-
