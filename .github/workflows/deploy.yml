@@ -25,12 +25,21 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         source: "etc"
         target: "~/"
-
+        
+    - id: host
+      env:
+        SSH: ${{ secrets.SSH_KEY }}
+      run: |
+        echo "$SSH" > ~/key.pem
+        ssh-keygen -p -m PEM -f ~/key.pem
+        key=$( cat ~/key.pem )
+        echo "SSH_KEY_RSA=$key" >> $GITHUB_ENV
+        
     - name: Start Deployment
       uses: wshihadeh/docker-deployment-action@master
       with:
         remote_docker_host: ${{ secrets.HOST }}
-        ssh_private_key: ${{ secrets.SSH_KEY_RSA }}
+        ssh_private_key: ${{ env.SSH_KEY_RSA }}
         ssh_public_key: ${{ secrets.SSH_KEY_PUB }}
         deployment_mode: docker-compose
         copy_stack_file: true
