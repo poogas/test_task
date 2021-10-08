@@ -31,4 +31,4 @@ jobs:
           playbookName: 'ansible/ansible.yml'
           inventoryFile: 'ansible/hosts'
           keyFile: 'ansible/key.pem'
-          extraVars: '-e USER=${{ secrets.USER }}'
+          extraVars: '-e USER=${{ secrets.HOST_USER }}'
