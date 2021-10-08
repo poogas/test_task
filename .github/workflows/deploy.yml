@@ -5,13 +5,9 @@ on:
     workflows: ['Ansible']
     types:
       - completed
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-  workflow_dispatch:
-
+    branches:
+      - main
+      
 jobs:
   remote:
     name: 'deploy'
