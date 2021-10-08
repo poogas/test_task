@@ -18,8 +18,8 @@ Creates simple project wordpress, nginx with letsencrypt, mariadb in docker comp
  | Secrets | Discription | Example |
 | ------ | ------ | ------ |
 | **HOST** | *Your ip host* | 127.0.0.1
-| **HOST_USER** | *User from host* | asdasd3ds:asdsad3773dhd37d37d
-| **SSH_KEY** | *Private Key from Key pair in host* | -----BEGIN RSA PRIVATE KEY...
+| **HOST_USER** | *User from host* | user
+| **SSH_KEY** | *Private Key from Key pair in host* | -----BEGIN OPENSSH PRIVATE KEY...
 | **SSH_KEY_RSA** | *Private Key from Key pair in host* | -----BEGIN RSA PRIVATE KEY-----
 | **SSH_KEY_PUB** | *Pub Key from Key pair in host* | ssh-rsa AAAAB3NzaC1yc2EAAAADAQA...
 | **LE_EMAIL** | *for letsencrypt should be your email* | mail@example.com
